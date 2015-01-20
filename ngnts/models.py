@@ -11,9 +11,10 @@
 from django.db import models
 from mptt.models import MPTTModel
 
-class BizCategory(MPTTModel):
+class BizCategory(models.Model):
     name = models.CharField(max_length=200,verbose_name=u'类别名称')
-    parent = models.ForeignKey("self", blank=True, null=True, related_name="children")
+    #parent = models.ForeignKey("self", blank=True, null=True, related_name="children")
+    doc = models.TextField(verbose_name=u'说明',blank=True, null=True)
 
     def __unicode__(self):
         return self.name
@@ -26,6 +27,7 @@ class BizCategory(MPTTModel):
 class BizService(models.Model):
     name = models.CharField(max_length=200,verbose_name=u'服务名称')
     category = models.ForeignKey('BizCategory')
+    doc = models.TextField(verbose_name=u'说明',blank=True, null=True)
     dependencies = models.ManyToManyField("self",blank=True, null=True)
 
     def __unicode__(self):
@@ -34,3 +36,27 @@ class BizService(models.Model):
     class Meta:
         verbose_name = u'业务服务'
         verbose_name_plural = u'业务服务'
+
+class Application(models.Model):
+    name = models.CharField(max_length=200,verbose_name=u'应用系统名称')
+    doc = models.TextField(verbose_name=u'说明',blank=True, null=True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = u'应用系统'
+        verbose_name_plural = u'应用系统'
+
+class AppService(models.Model):
+    name = models.CharField(max_length=200,verbose_name=u'应用服务名称')
+    app = models.ForeignKey('Application')
+    doc = models.TextField(verbose_name=u'说明',blank=True, null=True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = u'应用服务'
+        verbose_name_plural = u'应用服务'
+
