@@ -1,5 +1,9 @@
 {
     "name": "ngnts_site",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/holbrook/ngnts_site.git"
+    },
     "devDependencies": {
         "coffee-script": "",
         "grunt": "",
