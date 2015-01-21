@@ -23,7 +23,12 @@ class Command(BaseCommand):
         biz_cat3 = BizCategory.objects.create(name=u'信息披露')
         biz_cat4 = BizCategory.objects.create(name=u'监管报送')
         biz_cat5 = BizCategory.objects.create(name=u'行业间')
-        biz_cat6 = BizCategory.objects.create(name=u'其他')
+        biz_cat6 = BizCategory.objects.create(name=u'客户')
+        biz_cat7 = BizCategory.objects.create(name=u'其他')
+
+        biz_level1 = BizLevel.objects.create(name=u'规划')
+        biz_level2 = BizLevel.objects.create(name=u'控制')
+        biz_level3 = BizLevel.objects.create(name=u'执行')
 
         BizService.objects.create(category=biz_cat1,name=u'证券交易')
         BizService.objects.create(category=biz_cat1,name=u'大宗交易')
@@ -42,6 +47,3 @@ class Command(BaseCommand):
         BizService.objects.create(category=biz_cat3,name=u'证券行情')
         BizService.objects.create(category=biz_cat3,name=u'期货行情')
         BizService.objects.create(category=biz_cat3,name=u'港股行情')
-
-
-

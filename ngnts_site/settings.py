@@ -30,14 +30,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mptt',
-    'ngnts',
+    'django_extensions',
+    'rest_framework',
+    'ngnts_site.ngnts',
+    'django.contrib.admin',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -65,6 +67,9 @@ DATABASES = {
     }
 }
 
+
+SITE_ID = 1
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -83,3 +88,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Additional locations of static files
+STATICFILES_DIRS = (
+    os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'assets')),
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+)
+
+
+#REST_FRAMEWORK = {
+    #'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+#    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny'),
+#    'PAGINATE_BY': 10
+#}

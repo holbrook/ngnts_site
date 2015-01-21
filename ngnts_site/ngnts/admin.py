@@ -6,6 +6,8 @@ from models import *
 class BizCategoryAdmin(admin.ModelAdmin):
     pass
 
+admin.site.register(BizLevel)
+
 @admin.register(BizService)
 class BizS3erviceAdmin(admin.ModelAdmin):
     pass
