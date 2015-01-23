@@ -1,0 +1,15 @@
+<div ng-controller="ScopeDetailCtrl">
+<h3>业务模块：{{scope}}</h3>
+<table class="table table-condensed">
+        <tr ng-repeat="code in idx.scopes[scope]['messages']" ng-class="{'bg-danger': idx.messages[code].errors}">
+            <td><a class="post-link" ng-href="#/message/{{code}}">{{ code }}: {{ idx.messages[code].name}}</a></td>
+            <td>{{idx.messages[code].errors}}</td>
+            <td class="text-right">
+          <a ng-repeat="scope in idx.messages[code].scopes" ng-href="#scopes/{{scope}}" class="badge ">{{scope}}</a>&nbsp;
+                <a ng-href="#/applications/#{{idx.messages[code].app}}" class="label label-primary">
+                    {{idx.apps[idx.messages[code].app].name}}
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>

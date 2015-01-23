@@ -1,0 +1,15 @@
+<div class="container" ng-controller="MsgListCtrl">
+  <!-- <div id="msgGrid" ui-grid="gridOptions" ui-grid-edit class="grid"></div> -->
+	<table class="table table-condensed">
+		<tr ng-repeat="(k,v) in idx.messages | orderBy: [v.code]">
+  			<td><a class="post-link" ng-href="#/message/{{v.code}}">{{ v.code }}: {{ v.name }}</a></td>
+        <td ng-class="{'bg-danger': v.errors}">{{v.errors}}</td>
+  			<td class="text-right">
+          <a ng-repeat="scope in v.scopes" ng-href="#scopes/{{scope}}" class="badge ">{{scope}}</a>&nbsp;
+  				<a ng-href="#/applications/#{{v.app}}" class="label label-primary">{{idx.apps[v.app].name}}</a>
+
+  			</td>
+  		</tr>
+	</table>
+</div>
+

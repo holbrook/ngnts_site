@@ -20,11 +20,12 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         biz_cat1 = BizCategory.objects.create(name=u'交易')
         biz_cat2 = BizCategory.objects.create(name=u'结算')
-        biz_cat3 = BizCategory.objects.create(name=u'信息披露')
-        biz_cat4 = BizCategory.objects.create(name=u'监管报送')
-        biz_cat5 = BizCategory.objects.create(name=u'行业间')
-        biz_cat6 = BizCategory.objects.create(name=u'客户')
-        biz_cat7 = BizCategory.objects.create(name=u'其他')
+        biz_cat3 = BizCategory.objects.create(name=u'行情')
+        biz_cat4 = BizCategory.objects.create(name=u'信息披露')
+        biz_cat5 = BizCategory.objects.create(name=u'监管报送')
+        biz_cat6 = BizCategory.objects.create(name=u'行业间')
+        biz_cat7 = BizCategory.objects.create(name=u'客户')
+        biz_cat8 = BizCategory.objects.create(name=u'其他')
 
         biz_level1 = BizLevel.objects.create(name=u'规划')
         biz_level2 = BizLevel.objects.create(name=u'控制')

@@ -13,6 +13,6 @@
         "angular-ui-bootstrap-bower": ">=0.11.2",
         "underscore": ""
     },
-    "appPath": "app",
+    "appPath": "web_app",
     "private": true
 }
