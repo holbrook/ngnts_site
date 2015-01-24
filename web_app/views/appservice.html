@@ -1,0 +1,59 @@
+<div ng-controller="BizServiceCtrl">
+    <h3 class="page-heading">应用服务: {{code}}: {{message.name}}</h3>
+  <div>
+    应用提供者：<a ng-href="#/applications/#{{v.app}}" class="label label-primary">集中交易系统</a>
+
+    <a ng-repeat="scope in message.scopes" ng-href="#scopes/{{scope}}" class="badge ">{{scope}}</a>&nbsp;
+    通信协议：交互方式
+  </div>
+  <span>&nbsp;</span>
+    <div>{{message.doc}}</div>
+    <hr />
+
+    <h4>接口说明</h4>
+    <tabset class="tab-pane fade active in" >
+        <tab heading="v2.0.3">
+            开始日期：
+            终止日期：
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">输入参数</h3>
+                </div>
+                <table class="table table-condensed">
+                    <tr ng-repeat="(k,v) in message.request"
+                        ng-class="{'alert-danger': v.errors}">
+                        <td>{{v.type}}</td>
+                        <td>{{v.code}}</td>
+                        <td><span style="nowrap;">{{v.name}}</span></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">输出参数</h3>
+                </div>
+                <table class="table table-condensed">
+                    <tr ng-repeat="(k,v) in message.response"
+                        ng-class="{'alert-danger': v.errors}">
+                        <td>{{v.type}}</td>
+                        <td>{{v.code}}</td>
+                        <td><span style="nowrap;">{{v.name}}</span></td>
+                        <td>
+                            <span ng-if="v.errors">{{v.errors}}</span>
+                            <span ng-if="not v.errors">2{{v.doc}}</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </tab>
+        <tab heading="v2.0.1"></tab>
+        <tab heading="v1.1.0"></tab>
+    </tabset>
+
+
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1784345"></script>
+    <!-- UY END -->
+

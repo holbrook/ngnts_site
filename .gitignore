@@ -18,4 +18,5 @@ pep8.report
 *.sqlite3
 node_modules
 .vagrant
-assets
+.tmp
+bower_components

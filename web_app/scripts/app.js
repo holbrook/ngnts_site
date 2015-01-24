@@ -15,46 +15,38 @@ var myApp = angular.module('ngntsApp', [
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.bootstrap',
-    'angular-jqcloud'
+    'ui.bootstrap'
+    // 'angular-jqcloud'
   ]);
 
-myApp.factory('aProvider', function() {
-   console.log("factory");
-});
-
-myApp.directive("test1", function() {
-    console.log("directive setup");
-    return {
-        compile: function() {console.log("directive compile");}
-    }
-});
-
-myApp.directive("test2", function() {
-    return {
-        link: function() {console.log("directive link");}
-    }
-});
 
 myApp.run(function ($rootScope, $http){
-    console.log("app run");
-    $http({url:"data/index.json"})
-      .success(function(data, status, headers, config){
+    console.log('app run');
+    $http({url:'data/index.json'})
+      .success(function(data){
           $rootScope.idx = data;
           // alert($rootScope.idx.messages['110002'].code);
       })
-      .error(function(data, status, headers, config){
+      .error(function(status){
           alert(status);
       });
 
   });
 
 myApp.config( function($routeProvider) {
-    console.log("app config");
+    console.log('app config');
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
+      })
+      .when('/bizservice/:code', {
+        templateUrl: 'views/bizservice.html',
+        controller: 'BizServiceCtrl'
+      })
+      .when('/appservice/:code', {
+        templateUrl: 'views/appservice.html',
+        controller: 'AppServiceCtrl'
       })
       .when('/message', {
         templateUrl: 'views/msg_list.html',
@@ -94,8 +86,8 @@ myApp.config( function($routeProvider) {
       });
 });
 
-myApp.controller('myCtrl', function($scope) {
-    console.log("app controller");
+myApp.controller('myCtrl', function() {
+    console.log('app controller');
 });
 
 

@@ -9,36 +9,29 @@
  */
 angular.module('ngntsApp')
   .controller('MsgDetailCtrl', function ($scope, $routeParams, $http) {
-    console.log("msgDetail controller");
+    console.log('msgDetail controller');
     $scope.code = $routeParams.code;
 
-    $http({url:"data/messages/"+$scope.code+".json"})
-      .success(function(data, status, headers, config){
+    $http({url:'data/messages/'+$scope.code+'.json'})
+      .success(function(data){
           $scope.message = data;
           for(var x in $scope.message.request){
             var item = $scope.message.request[x];
-            if (item['type'].indexOf("N") >= 0){
-              if (item['type'].indexOf(".") >=0 ){
-                item['ride_type'] = 'Doub';
+            if (item.type.indexOf('N') >= 0){
+              if (item.type.indexOf('.') >=0 ){
+                item.rideType = 'Doub';
               }
               else{
-               item['ride_type'] = 'Int';
+               item.rideType = 'Int';
               }
             }else{
-              if (item['type'] == 'C1'){
-                item['ride_type'] = 'Char';
+              if (item.rideType === 'C1'){
+                item.rideType = 'Char';
               }
               else{
-                item['ride_type'] = 'Str';
+                item.rideType = 'Str';
               }
             }
-
-
           }
-      })
-      .error(function(data, status, headers, config){
-                // alert("error");
       });
-
-
   });

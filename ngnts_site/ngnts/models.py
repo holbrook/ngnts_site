@@ -48,8 +48,7 @@ class BizObject(models.Model):
         verbose_name = u'业务对象'
         verbose_name_plural = u'业务对象'
 
-class BizObjAttr():
-    models.Model):
+class BizObjAttr(models.Model):
     name = models.CharField(max_length=200,verbose_name=u'名称')
     doc = models.TextField(verbose_name=u'说明',blank=True, null=True)
     obj = models.ForeignKey('BizObject', blank=True, null=True)
@@ -112,7 +111,7 @@ class Protocol(models.Model):
         verbose_name = u'通信协议'
         verbose_name_plural = u'通信协议'
 
-class ExposeType(model.Model):
+class ExposeType(models.Model):
     name = models.CharField(max_length=200,verbose_name=u'通信协议名称')
 
 
